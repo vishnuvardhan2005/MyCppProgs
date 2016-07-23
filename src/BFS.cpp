@@ -2,17 +2,21 @@
 #include <queue>
 using namespace std;
 
+// Node of a graph
 struct node
 {
 	int data;
 	node* link;
-	node(int d,node* ln=NULL)
+	node(int data,node* link=NULL)
 	{
-		data = d;
-		link = ln;
+		this->data = data;
+		this->link = link;
 	}
 };
 
+/*
+* Initializes graph
+*/
 void Init(node** G,int N)
 {
 	for(int i=1;i<=N;i++)
@@ -21,6 +25,9 @@ void Init(node** G,int N)
 	}
 }
 
+/*
+* Adds an edge specified to graph G
+*/
 void AddEdge(node** G,int N,int v1,int v2)
 {
 	if(G[v1]==NULL)
@@ -38,6 +45,9 @@ void AddEdge(node** G,int N,int v1,int v2)
 	}
 }
 
+/*
+* BFS traversal
+*/
 void BFS(node** G,int N,int S)
 {
 	bool* visited = new bool[N];
